@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NOVVES — Performance Engineered</title>
+    <title>NOVVES — Global Quality by Airflow Engineering</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Archivo:wght@400;600;800;900&display=swap" rel="stylesheet">
@@ -286,97 +286,292 @@
     <nav class="nav">
         <div class="nav__brand">NOVVES</div>
         <ul class="nav__links">
-            <li><a href="#">Wheels</a></li>
-            <li><a href="#">Technology</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Dealer</a></li>
-            <li><a href="#">Service</a></li>
+            <li><a href="#">Ürünler</a></li>
+            <li><a href="#">Çözümler</a></li>
+            <li><a href="#">Hizmetler</a></li>
+            <li><a href="#">Kurumsal</a></li>
+            <li><a href="#">İletişim</a></li>
         </ul>
-        <div class="nav__lang">EN / TR</div>
+        <div class="nav__lang">TR / EN</div>
     </nav>
 
     <canvas id="canvas3d"></canvas>
 
+    <!-- DEV PANEL — ayarları bitirince değerleri bana ver, kaldırırım -->
+    <div id="devPanel" style="
+        position: fixed; top: 80px; right: 16px; z-index: 100;
+        background: rgba(12,12,12,0.94); backdrop-filter: blur(10px);
+        border: 1px solid #2a2a2a; border-radius: 8px;
+        padding: 14px 16px; width: 280px; max-height: 82vh; overflow-y: auto;
+        font-family: 'Inter', sans-serif; font-size: 11px;
+        color: #f2f2f2;
+    ">
+        <div style="font-weight:600; letter-spacing:0.2em; text-transform:uppercase; margin-bottom:10px; color:#9a9a9a;">Görsel Ayarlar</div>
+
+        <!-- BÖLÜM KISAYOLLARI -->
+        <div class="dp-group">
+            <div class="dp-h">Bölüme Git</div>
+            <div class="dp-jumps">
+                <button data-jump="hero">Giriş</button>
+                <button data-jump="p1">Duman Tahliye</button>
+                <button data-jump="p2">Mutfaklar</button>
+                <button data-jump="p3">CFD</button>
+                <button data-jump="specs">Özellikler</button>
+                <button data-jump="footer">Alt Bilgi</button>
+            </div>
+        </div>
+
+        <!-- TON / POZLAMA -->
+        <div class="dp-group">
+            <div class="dp-h">Ton & Pozlama</div>
+            <label>Pozlama <span data-v="exposure">1.15</span>
+                <input type="range" min="0" max="3" step="0.05" value="1.15" data-k="exposure">
+            </label>
+            <label>Ortam Işığı <span data-v="ambient">0.35</span>
+                <input type="range" min="0" max="3" step="0.05" value="0.35" data-k="ambient">
+            </label>
+        </div>
+
+        <!-- ANA IŞIK -->
+        <div class="dp-group">
+            <div class="dp-h">Ana Işık</div>
+            <label>Renk <input type="color" value="#ffffff" data-k="keyColor"></label>
+            <label>Yoğunluk <span data-v="keyI">2.2</span>
+                <input type="range" min="0" max="6" step="0.05" value="2.2" data-k="keyI">
+            </label>
+            <label>Konum X <span data-v="keyX">5</span>
+                <input type="range" min="-15" max="15" step="0.5" value="5" data-k="keyX">
+            </label>
+            <label>Konum Y <span data-v="keyY">6</span>
+                <input type="range" min="-15" max="15" step="0.5" value="6" data-k="keyY">
+            </label>
+            <label>Konum Z <span data-v="keyZ">7</span>
+                <input type="range" min="-15" max="15" step="0.5" value="7" data-k="keyZ">
+            </label>
+        </div>
+
+        <!-- SOĞUK KENAR IŞIK -->
+        <div class="dp-group">
+            <div class="dp-h">Soğuk Kenar Işık</div>
+            <label>Renk <input type="color" value="#3aa8ff" data-k="coolColor"></label>
+            <label>Yoğunluk <span data-v="coolI">2.4</span>
+                <input type="range" min="0" max="6" step="0.05" value="2.4" data-k="coolI">
+            </label>
+            <label>Konum X <span data-v="coolX">-7</span>
+                <input type="range" min="-15" max="15" step="0.5" value="-7" data-k="coolX">
+            </label>
+            <label>Konum Y <span data-v="coolY">2</span>
+                <input type="range" min="-15" max="15" step="0.5" value="2" data-k="coolY">
+            </label>
+            <label>Konum Z <span data-v="coolZ">-5</span>
+                <input type="range" min="-15" max="15" step="0.5" value="-5" data-k="coolZ">
+            </label>
+        </div>
+
+        <!-- SICAK KENAR IŞIK -->
+        <div class="dp-group">
+            <div class="dp-h">Sıcak Kenar Işık</div>
+            <label>Renk <input type="color" value="#ff7a2d" data-k="warmColor"></label>
+            <label>Yoğunluk <span data-v="warmI">1.8</span>
+                <input type="range" min="0" max="6" step="0.05" value="1.8" data-k="warmI">
+            </label>
+            <label>Konum X <span data-v="warmX">6</span>
+                <input type="range" min="-15" max="15" step="0.5" value="6" data-k="warmX">
+            </label>
+            <label>Konum Y <span data-v="warmY">-3</span>
+                <input type="range" min="-15" max="15" step="0.5" value="-3" data-k="warmY">
+            </label>
+            <label>Konum Z <span data-v="warmZ">2</span>
+                <input type="range" min="-15" max="15" step="0.5" value="2" data-k="warmZ">
+            </label>
+        </div>
+
+        <!-- PERVANE DURUMU -->
+        <div class="dp-group">
+            <div class="dp-h">Pervane Durumu</div>
+            <label style="display:flex; align-items:center; justify-content:space-between; gap:8px;">
+                <span style="float:none; color:#ffb76a;">Kaydırma animasyonunu dondur</span>
+                <input type="checkbox" id="freezeAnim" style="width:auto; float:none;">
+            </label>
+            <label>Ölçek <span data-v="fScale">0.20</span>
+                <input type="range" min="0.02" max="4" step="0.01" value="0.2" data-k="fScale">
+            </label>
+            <label>Konum X <span data-v="fPX">0</span>
+                <input type="range" min="-8" max="8" step="0.05" value="0" data-k="fPX">
+            </label>
+            <label>Konum Y <span data-v="fPY">0</span>
+                <input type="range" min="-5" max="5" step="0.05" value="0" data-k="fPY">
+            </label>
+            <label>Konum Z <span data-v="fPZ">0</span>
+                <input type="range" min="-8" max="8" step="0.05" value="0" data-k="fPZ">
+            </label>
+            <label>Dönüş X <span data-v="fRX">0.25</span>
+                <input type="range" min="-3.14" max="3.14" step="0.01" value="0.25" data-k="fRX">
+            </label>
+            <label>Dönüş Y <span data-v="fRY">0</span>
+                <input type="range" min="-3.14" max="3.14" step="0.01" value="0" data-k="fRY">
+            </label>
+            <label>Dönüş Z <span data-v="fRZ">0.75</span>
+                <input type="range" min="-3.14" max="3.14" step="0.01" value="0.75" data-k="fRZ">
+            </label>
+        </div>
+
+        <!-- MALZEME -->
+        <div class="dp-group">
+            <div class="dp-h">Malzeme</div>
+            <label>Metalik <span data-v="metal">0.95</span>
+                <input type="range" min="0" max="1" step="0.01" value="0.95" data-k="metal">
+            </label>
+            <label>Pürüzlülük <span data-v="rough">0.22</span>
+                <input type="range" min="0" max="1" step="0.01" value="0.22" data-k="rough">
+            </label>
+            <label>Yansıma Yoğunluğu <span data-v="envI">1.6</span>
+                <input type="range" min="0" max="5" step="0.05" value="1.6" data-k="envI">
+            </label>
+            <label>İç Işıma Rengi <input type="color" value="#1b2a4a" data-k="emCol"></label>
+            <label>İç Işıma Yoğunluğu <span data-v="emI">0.35</span>
+                <input type="range" min="0" max="3" step="0.05" value="0.35" data-k="emI">
+            </label>
+        </div>
+
+        <button id="copyBtn" style="
+            width:100%; padding:10px; background:#fff; color:#000;
+            border:none; border-radius:4px; font-size:11px; font-weight:600;
+            letter-spacing:0.2em; text-transform:uppercase; cursor:pointer;
+            margin-top:6px;
+        ">Değerleri Kopyala</button>
+
+        <script>
+            // Bölüme git kısayolları
+            const jumpMap = {
+                hero: 'secHero', p1: 'secP1', p2: 'secP2',
+                p3: 'secP3', specs: 'secSpecs', footer: 'secFooter'
+            };
+            document.querySelectorAll('#devPanel .dp-jumps button').forEach((btn) => {
+                btn.addEventListener('click', () => {
+                    const el = document.getElementById(jumpMap[btn.dataset.jump]);
+                    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                });
+            });
+        </script>
+
+        <pre id="outBox" style="
+            margin-top:10px; padding:8px; background:#000; border-radius:4px;
+            font-size:10px; color:#7fffa0; white-space:pre-wrap; line-height:1.5;
+            max-height:140px; overflow:auto;
+        "></pre>
+    </div>
+
+    <style>
+        #devPanel .dp-group { padding: 10px 0; border-top: 1px solid #222; }
+        #devPanel .dp-group:first-of-type { border-top: none; padding-top: 0; }
+        #devPanel .dp-h {
+            font-size: 10px; letter-spacing: 0.24em; text-transform: uppercase;
+            color: #6c8cff; margin-bottom: 8px; font-weight: 600;
+        }
+        #devPanel label {
+            display: block; margin-bottom: 8px; font-size: 10.5px;
+            color: #c8c8c8; letter-spacing: 0.05em;
+        }
+        #devPanel label span { color: #fff; font-weight: 600; float: right; }
+        #devPanel input[type="range"] { width: 100%; margin-top: 4px; }
+        #devPanel input[type="color"] {
+            width: 100%; height: 24px; background: none; border: 1px solid #333;
+            border-radius: 3px; cursor: pointer; padding: 0; margin-top: 4px;
+        }
+        #devPanel::-webkit-scrollbar { width: 6px; }
+        #devPanel::-webkit-scrollbar-thumb { background: #2a2a2a; border-radius: 3px; }
+        #devPanel .dp-jumps { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+        #devPanel .dp-jumps button {
+            padding: 8px 6px; background: #1a1a1a; color: #f2f2f2;
+            border: 1px solid #2a2a2a; border-radius: 4px;
+            font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
+            cursor: pointer; transition: background 0.2s, border-color 0.2s;
+            font-family: inherit;
+        }
+        #devPanel .dp-jumps button:hover { background: #2a2a2a; border-color: #4a4a4a; }
+    </style>
+
     <main class="stage">
 
-        <section class="hero">
-            <div class="hero__eyebrow">— Meilenstein Series / 2026</div>
-            <h1 class="hero__title">Performance<br><em>Engineered.</em></h1>
+        <section class="hero" id="secHero">
+            <div class="hero__eyebrow">— Global Quality by Airflow Engineering</div>
+            <h1 class="hero__title">Profesyonel<br><em>Havalandırma.</em></h1>
             <div class="hero__foot">
-                <div class="hero__meta">Handcrafted carbon · precision built</div>
-                <div class="scroll-hint">Scroll</div>
+                <div class="hero__meta">Hava hareketini mühendislikle buluşturur</div>
+                <div class="scroll-hint">Kaydır</div>
             </div>
         </section>
 
-        <section class="panel">
+        <section class="panel" id="secP1">
             <div class="panel__inner">
                 <div>
-                    <div class="panel__label">01 / Philosophy</div>
-                    <h2 class="panel__heading">The evolution of performance.</h2>
+                    <div class="panel__label">01 / Duman ve Isı Tahliye</div>
+                    <h2 class="panel__heading">Yüksek performansla tanışın.</h2>
                     <p class="panel__body">
-                        Her bir milimetre, her bir gram, her bir dönüş — hepsi mühendislik disiplinine tabi. Aerodinamik, bütünsel bir sonuç için tasarlanmış minimal bir form.
+                        Can güvenliği için tasarlanmış duman ve ısı tahliye fanları; EN standartlarına uyumlu, yangın senaryolarında kesintisiz çalışacak şekilde mühendislik edilmiştir.
                     </p>
-                    <a href="#" class="cta">Learn more</a>
+                    <a href="#" class="cta">Ürünleri keşfet</a>
                 </div>
                 <div class="panel__spacer"></div>
             </div>
         </section>
 
-        <section class="panel">
+        <section class="panel" id="secP2">
             <div class="panel__inner">
                 <div class="panel__spacer"></div>
                 <div>
-                    <div class="panel__label">02 / Craft</div>
-                    <h2 class="panel__heading">Handmade. Obsessive.</h2>
+                    <div class="panel__label">02 / Endüstriyel Mutfaklar</div>
+                    <h2 class="panel__heading">Rahat bir nefes alsın.</h2>
                     <p class="panel__body">
-                        Elde sarılan karbon fiber, kontrollü ortamda katman katman şekillenir. Yüzyüze denetim, ölçülebilir sonuç.
+                        Endüstriyel mutfaklar için konforlu iklimlendirme, hijyenik filtrasyon ve sessiz çalışma. Kapasiteye özel çözümler, uzun ömürlü performans.
                     </p>
-                    <a href="#" class="cta">Discover</a>
+                    <a href="#" class="cta">Çözümleri incele</a>
                 </div>
             </div>
         </section>
 
-        <section class="panel">
+        <section class="panel" id="secP3">
             <div class="panel__inner">
                 <div>
-                    <div class="panel__label">03 / Technology</div>
-                    <h2 class="panel__heading">Alpha Rib Technology.</h2>
+                    <div class="panel__label">03 / CFD & Mühendislik</div>
+                    <h2 class="panel__heading">Hava hareketi, hesaplanır.</h2>
                     <p class="panel__body">
-                        Jant profilinde yeniden düşünülmüş yapı: daha az malzeme, daha fazla direnç. Sürüşte fark edilir hafiflik.
+                        Projeye özel CFD analizleri, duman kontrol sistem tasarımı, devreye alma ve teknik servis. Üretimden saha denetimine kadar uçtan uca mühendislik hizmeti.
                     </p>
-                    <a href="#" class="cta">Explore tech</a>
+                    <a href="#" class="cta">Hizmetlerimiz</a>
                 </div>
                 <div class="panel__spacer"></div>
             </div>
         </section>
 
-        <section class="specs">
+        <section class="specs" id="secSpecs">
             <div class="specs__item">
-                <div class="specs__k">Weight</div>
-                <div class="specs__v">1,190 g</div>
+                <div class="specs__k">Deneyim</div>
+                <div class="specs__v">20+ Yıl</div>
             </div>
             <div class="specs__item">
-                <div class="specs__k">Origin</div>
-                <div class="specs__v">Germany</div>
+                <div class="specs__k">Sertifikalar</div>
+                <div class="specs__v">ISO · CE · TSE</div>
             </div>
             <div class="specs__item">
-                <div class="specs__k">Rim</div>
-                <div class="specs__v">Carbon</div>
+                <div class="specs__k">Kapsam</div>
+                <div class="specs__v">ATEX · EN · BSI</div>
             </div>
             <div class="specs__item">
-                <div class="specs__k">Series</div>
-                <div class="specs__v">MST · ART</div>
+                <div class="specs__k">Merkez</div>
+                <div class="specs__v">İstanbul</div>
             </div>
         </section>
 
     </main>
 
-    <footer class="footer">
+    <footer class="footer" id="secFooter">
         <div class="footer__wm">NOVVES</div>
         <div class="footer__row">
-            <span>© 2026 Novves</span>
-            <span>Instagram · YouTube · Strava</span>
-            <span>#ridenovves</span>
+            <span>© 2026 Novves · Kadıköy / İstanbul</span>
+            <span>info@novves.com · +90 216 467 47 52</span>
+            <span>LinkedIn · YouTube · Instagram</span>
         </div>
     </footer>
 
@@ -395,8 +590,13 @@
     <script type="module">
         import * as THREE from 'three';
         import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+        import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
 
         let scene, camera, renderer, fan;
+        let ambientLight, keyLight, rimCool, rimWarm;
+        let fanMaterials = [];
+        let scrollTL = null;
+        let animFrozen = false;
 
         // Momentum (atalet) tabanlı dönme durumu
         let spinVelocity = 0;
@@ -417,17 +617,28 @@
             });
             renderer.setSize(window.innerWidth, window.innerHeight);
             renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+            renderer.toneMapping = THREE.ACESFilmicToneMapping;
+            renderer.toneMappingExposure = 1.15;
+            renderer.outputColorSpace = THREE.SRGBColorSpace;
 
-            const ambientLight = new THREE.AmbientLight(0xffffff, 1.2);
+            // HDR Environment — PBR refleksiyon (en büyük "wow" etkisi buradan)
+            const pmrem = new THREE.PMREMGenerator(renderer);
+            scene.environment = pmrem.fromScene(new RoomEnvironment(), 0.04).texture;
+
+            ambientLight = new THREE.AmbientLight(0xffffff, 0.35);
             scene.add(ambientLight);
 
-            const keyLight = new THREE.DirectionalLight(0xffffff, 2.5);
+            keyLight = new THREE.DirectionalLight(0xffffff, 2.2);
             keyLight.position.set(5, 6, 7);
             scene.add(keyLight);
 
-            const rimLight = new THREE.DirectionalLight(0xaab7c4, 1.2);
-            rimLight.position.set(-6, -2, -4);
-            scene.add(rimLight);
+            rimCool = new THREE.DirectionalLight(0x3aa8ff, 2.4);
+            rimCool.position.set(-7, 2, -5);
+            scene.add(rimCool);
+
+            rimWarm = new THREE.DirectionalLight(0xff7a2d, 1.8);
+            rimWarm.position.set(6, -3, 2);
+            scene.add(rimWarm);
 
             const loader = new GLTFLoader();
             loader.load('pervane.glb', (gltf) => {
@@ -441,7 +652,27 @@
                 // 3/4 açı: pervane düz daire değil, kanatları belli olsun
                 fan.rotation.x = 0.25;
                 fan.rotation.z = 0.75;
+
+                // Malzemeleri yükselt: daha metalik, daha parlak, hafif iç ışıma
+                fan.traverse((child) => {
+                    if (child.isMesh && child.material) {
+                        const mats = Array.isArray(child.material) ? child.material : [child.material];
+                        mats.forEach((m) => {
+                            if ('metalness' in m) m.metalness = 0.95;
+                            if ('roughness' in m) m.roughness = 0.22;
+                            if ('envMapIntensity' in m) m.envMapIntensity = 1.6;
+                            if ('emissive' in m) {
+                                m.emissive = new THREE.Color(0x1b2a4a);
+                                m.emissiveIntensity = 0.35;
+                            }
+                            m.needsUpdate = true;
+                            fanMaterials.push(m);
+                        });
+                    }
+                });
+
                 scene.add(fan);
+                bindDevPanel();
                 setupAnimation();
             },
             undefined,
@@ -454,7 +685,7 @@
             gsap.registerPlugin(ScrollTrigger);
 
             // Sayfa scroll'una bağlı kompozisyon: pervane soldan sağa, yan yatar, zoom
-            gsap.timeline({
+            scrollTL = gsap.timeline({
                 scrollTrigger: {
                     trigger: ".stage",
                     start: "top top",
@@ -491,6 +722,108 @@
             }
 
             renderer.render(scene, camera);
+        }
+
+        // ===== DEV PANEL =====
+        function bindDevPanel() {
+            const state = {
+                exposure: 1.15, ambient: 0.35,
+                keyColor: '#ffffff', keyI: 2.2, keyX: 5, keyY: 6, keyZ: 7,
+                coolColor: '#3aa8ff', coolI: 2.4, coolX: -7, coolY: 2, coolZ: -5,
+                warmColor: '#ff7a2d', warmI: 1.8, warmX: 6, warmY: -3, warmZ: 2,
+                fScale: 0.2, fPX: 0, fPY: 0, fPZ: 0, fRX: 0.25, fRY: 0, fRZ: 0.75,
+                metal: 0.95, rough: 0.22, envI: 1.6, emCol: '#1b2a4a', emI: 0.35,
+            };
+
+            const apply = () => {
+                renderer.toneMappingExposure = +state.exposure;
+                ambientLight.intensity = +state.ambient;
+
+                keyLight.color.set(state.keyColor);
+                keyLight.intensity = +state.keyI;
+                keyLight.position.set(+state.keyX, +state.keyY, +state.keyZ);
+
+                rimCool.color.set(state.coolColor);
+                rimCool.intensity = +state.coolI;
+                rimCool.position.set(+state.coolX, +state.coolY, +state.coolZ);
+
+                rimWarm.color.set(state.warmColor);
+                rimWarm.intensity = +state.warmI;
+                rimWarm.position.set(+state.warmX, +state.warmY, +state.warmZ);
+
+                // Pervane transform'u yalnızca dondurmadayken uygulanır ki
+                // ışık/malzeme slider'ları scroll koreografisinin üstüne yazmasın
+                if (fan && animFrozen) {
+                    const s = +state.fScale;
+                    fan.scale.set(s, s, s);
+                    fan.position.set(+state.fPX, +state.fPY, +state.fPZ);
+                    fan.rotation.x = +state.fRX;
+                    fan.rotation.z = +state.fRZ;
+                }
+
+                fanMaterials.forEach((m) => {
+                    if ('metalness' in m) m.metalness = +state.metal;
+                    if ('roughness' in m) m.roughness = +state.rough;
+                    if ('envMapIntensity' in m) m.envMapIntensity = +state.envI;
+                    if ('emissive' in m) {
+                        m.emissive.set(state.emCol);
+                        m.emissiveIntensity = +state.emI;
+                    }
+                });
+            };
+
+            const out = document.getElementById('outBox');
+            const fmt = (v) => typeof v === 'string' ? v : (+v).toFixed(2).replace(/\.?0+$/, (s) => s.includes('.') ? '' : s);
+            const updateOut = () => {
+                out.textContent = Object.entries(state)
+                    .map(([k, v]) => `${k}: ${fmt(v)}`).join('\n');
+            };
+
+            const fanKeys = ['fScale','fPX','fPY','fPZ','fRX','fRY','fRZ'];
+            document.querySelectorAll('#devPanel [data-k]').forEach((inp) => {
+                const k = inp.dataset.k;
+                const label = document.querySelector(`#devPanel [data-v="${k}"]`);
+                inp.addEventListener('input', () => {
+                    state[k] = inp.value;
+                    if (label) label.textContent = inp.value;
+                    // Pervane slider'ı oynatılınca otomatik dondur (GSAP üstüne yazmasın)
+                    if (fanKeys.includes(k) && !animFrozen) {
+                        const fb = document.getElementById('freezeAnim');
+                        fb.checked = true;
+                        fb.dispatchEvent(new Event('change'));
+                    }
+                    // Y dönüşünü elle ayarlamak istersen (spin üstüne eklenir)
+                    if (k === 'fRY' && fan) {
+                        fan.rotation.y = +inp.value;
+                    }
+                    apply();
+                    updateOut();
+                });
+            });
+
+            // Freeze toggle — scroll timeline'ı durdurur, pervaneyi slider kontrolüne verir
+            const freezeBox = document.getElementById('freezeAnim');
+            freezeBox.addEventListener('change', () => {
+                animFrozen = freezeBox.checked;
+                if (scrollTL) {
+                    if (animFrozen) {
+                        scrollTL.scrollTrigger && scrollTL.scrollTrigger.disable();
+                    } else {
+                        scrollTL.scrollTrigger && scrollTL.scrollTrigger.enable();
+                    }
+                }
+                if (animFrozen) spinVelocity = 0;
+                apply();
+            });
+
+            document.getElementById('copyBtn').addEventListener('click', () => {
+                navigator.clipboard.writeText(out.textContent);
+                const b = document.getElementById('copyBtn');
+                b.textContent = 'KOPYALANDI ✓';
+                setTimeout(() => b.textContent = 'Değerleri Kopyala', 1400);
+            });
+
+            updateOut();
         }
 
         window.addEventListener('resize', () => {
