@@ -1,0 +1,11 @@
+Model Information:
+* title:	Turbine Engine Blade
+* source:	https://sketchfab.com/3d-models/turbine-engine-blade-6b8eb8fd4e7d4bd6b109ac3ec898fa70
+* author:	pira.midale (https://sketchfab.com/pira.midale)
+
+Model License:
+* license type:	CC-BY-NC-ND-4.0 (http://creativecommons.org/licenses/by-nc-nd/4.0/)
+* requirements:	Author must be credited. No commercial use. Modified versions can not be distributed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Turbine Engine Blade" (https://sketchfab.com/3d-models/turbine-engine-blade-6b8eb8fd4e7d4bd6b109ac3ec898fa70) by pira.midale (https://sketchfab.com/pira.midale) licensed under CC-BY-NC-ND-4.0 (http://creativecommons.org/licenses/by-nc-nd/4.0/)

@@ -1,0 +1,19 @@
+body {
+    margin: 0;
+    background-color: #000; /* Arka planı siyah yapalım, pervane öne çıksın */
+    overflow-x: hidden;
+}
+
+#canvas3d {
+    position: fixed; /* Pervane biz scroll yapsak da ekranda sabit kalsın */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 1;
+}
+
+/* Scroll yapabilmek için altına hayali bir boşluk ekleyelim */
+.scroll-spacer {
+    height: 400vh; /* Ekranın 4 katı kadar uzunluk */
+}
